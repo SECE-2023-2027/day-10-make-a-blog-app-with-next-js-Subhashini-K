@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getBlogPost, getAllBlogPosts } from "@/data/blogPosts";
 import { notFound } from "next/navigation";
+import Header from "@/components/Header";
 
 export async function generateStaticParams() {
   const posts = getAllBlogPosts();
@@ -33,30 +34,22 @@ export default function BlogPost({ params }) {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      {/* Header */}
-      <header className="bg-white dark:bg-gray-800 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <nav className="flex items-center justify-between">
-            <Link 
-              href="/" 
-              className="text-2xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-            >
-              TechBlog
-            </Link>
-            <Link 
-              href="/" 
-              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium transition-colors"
-            >
-              ← Back to Blog
-            </Link>
-          </nav>
-        </div>
-      </header>
+      {/* Header with GitHub OAuth */}
+      <Header />
 
       {/* Article */}
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Article Header */}
         <header className="mb-8">
+          <div className="mb-4">
+            <Link 
+              href="/" 
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium transition-colors inline-flex items-center"
+            >
+              ← Back to Blog
+            </Link>
+          </div>
+          
           <div className="flex flex-wrap gap-2 mb-4">
             {post.tags.map((tag) => (
               <span

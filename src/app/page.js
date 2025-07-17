@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAllBlogPosts } from "@/data/blogPosts";
+import Header from "@/components/Header";
 
 function BlogCard({ post }) {
   return (
@@ -53,19 +54,22 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      {/* Header */}
-      <header className="bg-white dark:bg-gray-800 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      {/* Header with GitHub OAuth */}
+      <Header />
+
+      {/* Hero Section */}
+      <section className="bg-white dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
-              TechBlog
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+              Welcome to TechBlog
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
-              Insights and tutorials for modern web development
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Discover insights and tutorials for modern web development. Stay updated with the latest trends in React, JavaScript, and cutting-edge programming practices.
             </p>
           </div>
         </div>
-      </header>
+      </section>
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
